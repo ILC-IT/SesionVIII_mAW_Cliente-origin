@@ -24,25 +24,20 @@ export class PeliculasListComponent implements OnInit {
   }
 
   peliculasData: any;
-  peliculasDataOrdenado: any;
+  copia: any;
+
   constructor() { 
+    this.copia = JSON.parse(JSON.stringify(peliculas));
     this.peliculasData = peliculas;
-    this.peliculasDataOrdenado = peliculas; //this.sortJSON(this.peliculasData, 'title', 'asc');
-    console.log(peliculas);
-    console.log(this.peliculasDataOrdenado)
   }
-  isToggled: boolean = false;
+  
+  flag: boolean = false;
   private ordenar(){
-    this.isToggled = !this.isToggled;
-    if (this.isToggled) {
-      console.log(peliculas)
-      this.peliculasData = this.sortJSON(this.peliculasDataOrdenado, 'title', 'asc');
-      console.log("ordenar")
-      console.log(peliculas)
+    this.flag = !this.flag;
+    if (this.flag) {
+      this.peliculasData = this.sortJSON(this.copia, 'title', 'asc');
     }else{
       this.peliculasData = peliculas;
-      console.log("no ordenar")
-      console.log(peliculas)
     }
   }
 
