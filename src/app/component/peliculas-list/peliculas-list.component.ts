@@ -31,7 +31,7 @@ export class PeliculasListComponent implements OnInit {
     console.log(peliculas);
     console.log(this.peliculasDataOrdenado)
   }
-  isToggled: boolean = true;
+  isToggled: boolean = false;
   private ordenar(){
     this.isToggled = !this.isToggled;
     if (this.isToggled) {
